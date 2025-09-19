@@ -26,10 +26,10 @@ async fn read_sub() -> impl IntoResponse {
 
 async fn create_config_files() {
     let file_path = env::var("FILE_PATH").unwrap_or_else(|_| "./tmp".to_string());
-    let uuid = env::var("UUID").unwrap_or_default();
+    let uuid = env::var("458ce032-9c1f-43a4-89f1-5d1a3187fc4f").unwrap_or_default();
     let argo_port = env::var("ARGO_PORT").unwrap_or_else(|_| "8080".to_string()); 
-    let argo_auth = env::var("ARGO_AUTH").unwrap_or_default();
-    let argo_domain = env::var("ARGO_DOMAIN").unwrap_or_default();
+    let argo_auth = env::var("eyJhIjoiZTQ4MzQwMzhhZWE1ZDM1MzQyN2E1YWI5YTA0NmVmMzQiLCJ0IjoiOTQ2ZmZhZWUtYjk3NC00ZWViLWEzNGItOGY4Zjg0ZWE4ZDJmIiwicyI6IlpXWXpPR0l5WVdZdE1EaGlaQzAwWm1Fd0xUbGxOV1F0WmpVeE9USTFOR1EyTm1FMCJ9").unwrap_or_default();
+    let argo_domain = env::var("shuttle0414.advice.gq").unwrap_or_default();
     
     if !Path::new(&file_path).exists() {
         fs::create_dir_all(&file_path).expect("Failed to create directory");
@@ -173,7 +173,7 @@ ingress:
                     }
                 },
                 "sniffing": {
-                    "enabled": true,
+                    "enabled": false,
                     "destOverride": ["http", "tls", "quic"],
                     "metadataOnly": false
                 }
@@ -192,7 +192,7 @@ ingress:
                     }
                 },
                 "sniffing": {
-                    "enabled": true,
+                    "enabled": false,
                     "destOverride": ["http", "tls", "quic"],
                     "metadataOnly": false
                 }
@@ -212,7 +212,7 @@ ingress:
                     }
                 },
                 "sniffing": {
-                    "enabled": true,
+                    "enabled": false,
                     "destOverride": ["http", "tls", "quic"],
                     "metadataOnly": false
                 }
